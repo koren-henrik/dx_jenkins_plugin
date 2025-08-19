@@ -10,7 +10,7 @@ Artifact-Id: dx-data-sharer
 Short-Name: dx-data-sharer
 Long-Name: TODO Plugin
 Url: https://github.com/jenkinsci/dx-data-sharer-plugin
-Plugin-Version: 1.0-SNAPSHOT (private-758708d5-samuelyoung)
+Plugin-Version: 1.0-SNAPSHOT (private-c20a00ee-samuelyoung)
 Hudson-Version: 2.451
 Jenkins-Version: 2.451
 Plugin-Dependencies: credentials:1319.v7eb_51b_3a_c97b_,git:5.2.1,plain-
@@ -22,6 +22,6 @@ Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/dx-data-share
  r-plugin
 Plugin-ScmTag: HEAD
 Plugin-ScmUrl: https://github.com/jenkinsci/dx-data-sharer-plugin
-Plugin-GitHash: 758708d5eae5b297692d6244c7d882fd50dc9814
-Implementation-Build: 758708d5eae5b297692d6244c7d882fd50dc9814
+Plugin-GitHash: c20a00eec6ce876a7e8a5a86424764ecf3476b08
+Implementation-Build: c20a00eec6ce876a7e8a5a86424764ecf3476b08
 
