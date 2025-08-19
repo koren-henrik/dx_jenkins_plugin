@@ -1,4 +1,4 @@
-name: Build Jenkins Plugin
+name: Build Jenkins Plugin (Matrix)
 
 on:
   push:
@@ -6,27 +6,43 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Runner type'
+        required: false
+        default: 'ubuntu-latest'
+        type: choice
+        options:
+          - ubuntu-latest
+          - ubuntu-20.04
+          - ubuntu-22.04
+          - isg-ocp-x86-medium
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ github.event.inputs.runner || 'ubuntu-latest' }}
+    
+    strategy:
+      matrix:
+        java-version: [11, 17]
+        maven-version: ['3.9.9']
+      fail-fast: false
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up JDK 11
+    - name: Set up JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
-        distribution: 'temurin'
-
-    - name: Set up Maven
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
+        java-version: ${{ matrix.java-version }}
         distribution: 'temurin'
         cache: 'maven'
+
+    - name: Verify Maven and Java versions
+      run: |
+        java -version
+        mvn -version
 
     - name: Compile and package Jenkins plugin
       run: mvn clean package -DskipTests=false
@@ -35,17 +51,17 @@ jobs:
       run: mvn test
 
     - name: Upload HPI artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: dx-data-sharer-plugin
+        name: dx-data-sharer-plugin-java${{ matrix.java-version }}
         path: target/dx-data-sharer.hpi
         retention-days: 30
 
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: test-results
+        name: test-results-java${{ matrix.java-version }}
         path: target/surefire-reports/
         retention-days: 7
 
@@ -54,6 +70,8 @@ jobs:
         echo "Generated HPI file details:"
         ls -la target/dx-data-sharer.hpi
         echo "File size: $(wc -c < target/dx-data-sharer.hpi) bytes"
+        echo "Java version: ${{ matrix.java-version }}"
+        echo "Runner: ${{ runner.os }}"
 
     - name: Get version from POM
       id: version
@@ -62,9 +80,9 @@ jobs:
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "Version: $VERSION"
 
-    - name: Create Release on Tag
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
+    - name: Create Release on Tag (Java 11 only)
+      if: startsWith(github.ref, 'refs/tags/') && matrix.java-version == '11'
+      uses: softprops/action-gh-release@v2
       with:
         files: |
           target/dx-data-sharer.hpi
@@ -85,14 +103,18 @@ jobs:
           - `dx-data-sharer.hpi` - Jenkins plugin file for installation
           - `dx-data-sharer.jar` - Plugin JAR file
           
-          Built from commit: ${{ github.sha }}
+          ### Build Info
+          - Java version: ${{ matrix.java-version }}
+          - Maven version: ${{ matrix.maven-version }}
+          - Built from commit: ${{ github.sha }}
+          - Runner: ${{ runner.os }}
         draft: false
         prerelease: ${{ contains(steps.version.outputs.version, 'SNAPSHOT') }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload to GitHub Packages (Maven Repository)
-      if: github.ref == 'refs/heads/main'
+    - name: Upload to GitHub Packages (Main branch, Java 11 only)
+      if: github.ref == 'refs/heads/main' && matrix.java-version == '11'
       run: |
         mvn deploy -DskipTests
       env:

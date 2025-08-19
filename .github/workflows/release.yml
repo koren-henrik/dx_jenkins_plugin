@@ -15,7 +15,7 @@ on:
 
 jobs:
   release:
-    runs-on: isg-ocp-x86-medium
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout code
@@ -27,19 +27,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Set up Maven 3.9.9
+    - name: Set up Maven
       uses: actions/setup-java@v4
       with:
         java-version: '11'
         distribution: 'temurin'
-        maven-version: '3.9.9'
-
-    - name: Cache Maven dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        cache: 'maven'
 
     - name: Update version in POM
       run: |
@@ -57,13 +50,13 @@ jobs:
         echo "Generated files:"
         ls -la target/dx-data-sharer.*
         echo ""
-        echo "HPI file size: $(stat -c%s target/dx-data-sharer.hpi) bytes"
-        echo "JAR file size: $(stat -c%s target/dx-data-sharer.jar) bytes"
+        echo "HPI file size: $(wc -c < target/dx-data-sharer.hpi) bytes"
+        echo "JAR file size: $(wc -c < target/dx-data-sharer.jar) bytes"
 
     - name: Create and push tag
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add pom.xml
         git commit -m "Release ${{ github.event.inputs.version }}" || echo "No changes to commit"
         git tag ${{ github.event.inputs.version }}
