@@ -24,7 +24,7 @@ jobs:
     
     strategy:
       matrix:
-        java-version: [11, 17]
+        java-version: [17]
         maven-version: ['3.9.9']
       fail-fast: false
     
