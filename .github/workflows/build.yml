@@ -35,14 +35,14 @@ jobs:
       run: mvn test
 
     - name: Upload HPI artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dx-data-sharer-plugin
         path: target/dx-data-sharer.hpi
         retention-days: 30
 
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: test-results
