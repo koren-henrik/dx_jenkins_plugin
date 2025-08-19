@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Group-Id: io.jenkins.plugins
+Artifact-Id: dx-data-sharer
+Short-Name: dx-data-sharer
+Long-Name: TODO Plugin
+Url: https://github.com/jenkinsci/dx-data-sharer-plugin
+Plugin-Version: 1.0-SNAPSHOT (private-758708d5-samuelyoung)
+Hudson-Version: 2.451
+Jenkins-Version: 2.451
+Plugin-Dependencies: credentials:1319.v7eb_51b_3a_c97b_,git:5.2.1,plain-
+ credentials:179.vc5cb_98f6db_38,structs:337.v1b_04ea_4df7c8
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/license/mit/
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/dx-data-share
+ r-plugin
+Plugin-ScmTag: HEAD
+Plugin-ScmUrl: https://github.com/jenkinsci/dx-data-sharer-plugin
+Plugin-GitHash: 758708d5eae5b297692d6244c7d882fd50dc9814
+Implementation-Build: 758708d5eae5b297692d6244c7d882fd50dc9814
+Libraries: /Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins
+ _repo/Jenkins/src/main/resources,/Users/samuelyoung/Documents/Pipelines
+ /Jenkins/plugin/jenkins_repo/Jenkins/target/classes,/Users/samuelyoung/
+ .m2/repository/org/json/json/20210307/json-20210307.jar
+Resource-Path: /Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jen
+ kins_repo/Jenkins/src/main/webapp
+

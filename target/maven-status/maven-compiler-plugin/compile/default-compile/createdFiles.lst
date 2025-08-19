@@ -1,0 +1,5 @@
+META-INF/annotations/hudson.Extension.txt
+io/jenkins/plugins/sample/DxRunListener.class
+io/jenkins/plugins/sample/DxDataSender.class
+io/jenkins/plugins/sample/DxGlobalConfiguration.class
+META-INF/annotations/hudson.Extension

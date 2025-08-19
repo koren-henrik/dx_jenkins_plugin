@@ -1,0 +1,60 @@
+Aug 19, 2025 1:54:20 PM org.jvnet.hudson.test.WarExploder explode
+INFO: Exploding /Users/samuelyoung/.m2/repository/org/jenkins-ci/main/jenkins-war/2.451/jenkins-war-2.451.war into /Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/jenkins-for-test
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.handler.ContextHandler setContextPath
+WARNING: Empty contextPath
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.Server doStart
+INFO: jetty-10.0.20; built: 2024-01-29T20:46:45.278Z; git: 3a745c71c23682146f262b99f4ddc4c1bc41630c; jvm 17.0.13+0
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.webapp.StandardDescriptorProcessor visitServlet
+INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: Session workerName=node0
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started o.e.j.w.WebAppContext@ad3324b{Jenkins v2.451,/,file:///Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/jenkins-for-test/,AVAILABLE}{/Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/jenkins-for-test}
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@4b54af3d{HTTP/1.1, (http/1.1)}{localhost:64695}
+Aug 19, 2025 1:54:21 PM org.eclipse.jetty.server.Server doStart
+INFO: Started Server@6aef4eb8{STARTING}[10.0.20,sto=0] @1672ms
+Aug 19, 2025 1:54:21 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Aug 19, 2025 1:54:22 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Aug 19, 2025 1:54:22 PM jenkins.bouncycastle.api.BouncyCastlePlugin start
+INFO: /Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/tmp/j h3819418632340597257/plugins/bouncycastle-api/WEB-INF/optional-lib not found; for non RealJenkinsRule this is fine and can be ignored.
+Aug 19, 2025 1:54:22 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Aug 19, 2025 1:54:22 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Aug 19, 2025 1:54:22 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Aug 19, 2025 1:54:23 PM jenkins.InitReactorRunner$1 onAttained
+INFO: System config loaded
+Aug 19, 2025 1:54:23 PM jenkins.InitReactorRunner$1 onAttained
+INFO: System config adapted
+Aug 19, 2025 1:54:23 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Aug 19, 2025 1:54:23 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Configuration for all jobs updated
+Aug 19, 2025 1:54:23 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.Server doStart
+INFO: jetty-10.0.20; built: 2024-01-29T20:46:45.278Z; git: 3a745c71c23682146f262b99f4ddc4c1bc41630c; jvm 17.0.13+0
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
+INFO: Session workerName=node0
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started o.e.j.s.ServletContextHandler@6dc9da2d{/,null,AVAILABLE}
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@68a78f3c{HTTP/1.1, (http/1.1)}{0.0.0.0:64697}
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.Server doStart
+INFO: Started Server@3481ff98{STARTING}[10.0.20,sto=0] @3172ms
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.Server doStop
+INFO: Stopped Server@6aef4eb8{STOPPING}[10.0.20,sto=0]
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.AbstractConnector doStop
+INFO: Stopped ServerConnector@4b54af3d{HTTP/1.1, (http/1.1)}{localhost:0}
+Aug 19, 2025 1:54:23 PM org.eclipse.jetty.server.handler.ContextHandler doStop
+INFO: Stopped o.e.j.w.WebAppContext@ad3324b{Jenkins v2.451,/,file:///Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/jenkins-for-test/,STOPPED}{/Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/jenkins-for-test}
+Aug 19, 2025 1:54:23 PM hudson.lifecycle.Lifecycle onStatusUpdate
+INFO: Stopping Jenkins
+Aug 19, 2025 1:54:23 PM hudson.lifecycle.Lifecycle onStatusUpdate
+INFO: Jenkins stopped
+Aug 19, 2025 1:54:23 PM org.jvnet.hudson.test.TemporaryDirectoryAllocator dispose
+INFO: deleting /Users/samuelyoung/Documents/Pipelines/Jenkins/plugin/jenkins_repo/Jenkins/target/tmp/j h3819418632340597257
